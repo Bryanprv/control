@@ -8,7 +8,7 @@ body {
 
 header {
   background: linear-gradient(90deg, #6366f1 0%, #3b82f6 100%);
-  color: whiteblue;
+  color: white;
   padding: 2rem 1rem 1.5rem 1rem;
   text-align: center;
   box-shadow: 0 2px 8px rgba(99,102,241,0.15);
