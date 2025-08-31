@@ -1,0 +1,40 @@
+# Node modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+dist/
+build/
+
+# Firebase
+.firebase/
+
+# Firebase config file (no subir al repositorio)
+firebase-config.js
+firebase-config.example.js
+
+# VS Code
+.vscode/
+
+# Mac/Windows system files
+.DS_Store
+Thumbs.db
+
+# Env files
+.env
+.env.*
+
+# TypeScript
+*.tsbuildinfo
+
+# Others
+functions/node_modules/
+control/node_modules/
+
+dataconnect/
+functions/
+control/
