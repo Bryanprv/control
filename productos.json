@@ -1,0 +1,32 @@
+[
+  {
+    "nombre": "Camiseta básica",
+    "descripcion": "Camiseta de algodón 100% en varios colores.",
+    "precio": 12.99,
+    "categoria": "Ropa"
+  },
+  {
+    "nombre": "Pantalón deportivo",
+    "descripcion": "Pantalón cómodo para ejercicio o uso diario.",
+    "precio": 19.99,
+    "categoria": "Ropa"
+  },
+  {
+    "nombre": "Auriculares Bluetooth",
+    "descripcion": "Auriculares inalámbricos con cancelación de ruido.",
+    "precio": 29.99,
+    "categoria": "Electrónica"
+  },
+  {
+    "nombre": "Mochila escolar",
+    "descripcion": "Mochila resistente con varios compartimentos.",
+    "precio": 24.99,
+    "categoria": "Accesorios"
+  },
+  {
+    "nombre": "Reloj digital",
+    "descripcion": "Reloj resistente al agua con alarma y cronómetro.",
+    "precio": 15.99,
+    "categoria": "Accesorios"
+  }
+]

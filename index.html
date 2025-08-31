@@ -10,13 +10,15 @@
   <header>
     <h1>Mi Tienda Online</h1>
     <input type="text" id="search" placeholder="Buscar productos..." />
+    <select id="category-filter">
+      <option value="">Todas las categorías</option>
+      <!-- Las opciones se pueden agregar manualmente o por JS si lo deseas -->
+    </select>
+    <button id="export-json" style="margin-left:1rem;">Exportar productos a JSON</button>
   </header>
 
   <main id="product-list"></main>
 
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-  <script src="firebase-config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
