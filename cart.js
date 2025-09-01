@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const itemDiv = document.createElement('div');
       itemDiv.className = 'cart-item';
       itemDiv.innerHTML = `
+        <img src="${item.imagen}" alt="${item.nombre}" class="cart-item-thumb" style="width:48px;height:48px;object-fit:cover;border-radius:8px;margin-right:12px;">
         <div class="cart-item-info">
           <h4>${item.nombre}</h4>
           <p>$${item.precio} x ${item.quantity}</p>
