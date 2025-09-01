@@ -139,9 +139,22 @@ document.getElementById('cart-overlay').addEventListener('click', () => {
   document.getElementById('cart-overlay').classList.add('hidden');
 });
 
-document.getElementById('clear-cart').addEventListener('click', () => {
-  cart = [];
-  saveCart();
+
+// Botón de WhatsApp para enviar el pedido
+document.getElementById('whatsapp-cart').addEventListener('click', function(e) {
+  e.preventDefault();
+  if (cart.length === 0) {
+    alert('El carrito está vacío.');
+    return;
+  }
+  let mensaje = '¡Hola! Quiero hacer un pedido:%0A';
+  cart.forEach(item => {
+    mensaje += `- ${item.nombre} x${item.quantity} ($${item.precio})%0A`;
+  });
+  mensaje += `Total: $${cart.reduce((acc, item) => acc + item.precio * item.quantity, 0).toFixed(2)}`;
+  const telefono = '521XXXXXXXXXX'; // Reemplaza por tu número de WhatsApp
+  const url = `https://wa.me/${telefono}?text=${mensaje}`;
+  window.open(url, '_blank');
 });
 
 // Cargar el carrito al iniciar
