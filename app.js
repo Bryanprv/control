@@ -40,38 +40,42 @@ function mostrarProductos(categoria) {
   if (categoria) {
     productosFiltrados = productosData.filter(p => p.categoria === categoria);
   }
-  productosFiltrados.forEach((data, index) => {
-    const div = document.createElement('div');
-    div.className = 'product';
-    div.innerHTML = `
-      <h3>${data.nombre}</h3>
-      <p>${data.descripcion}</p>
-      <strong>$${data.precio}</strong>
-      <div style="margin-top:0.5rem;color:#6366f1;font-size:0.95rem;">${data.categoria ? data.categoria : ''}</div>
-      <button class="add-to-cart-btn" data-index="${index}">Añadir al Carrito</button>
-    `;
-    productList.appendChild(div);
-  });
+  productosFiltrados.forEach(data => {
+    const productLink = document.createElement('a');
+    productLink.href = `product.html?id=${data.id}`;
+    productLink.className = 'product-link';
 
-  // Añadir listeners a los botones
-  document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-    button.addEventListener('click', (e) => {
-      const productIndex = e.target.dataset.index;
-      addToCart(productosData[productIndex]);
-    });
+    const productDiv = document.createElement('div');
+    productDiv.className = 'product';
+    productDiv.innerHTML = `
+      <img src="${data.imagen}" alt="${data.nombre}" style="width:100%; border-radius: 1rem 1rem 0 0;">
+      <div class="product-info">
+        <h3>${data.nombre}</h3>
+        <p>${data.descripcion.substring(0, 50)}...</p>
+        <strong>$${data.precio}</strong>
+        <div style="margin-top:0.5rem;color:#6366f1;font-size:0.95rem;">${data.categoria ? data.categoria : ''}</div>
+      </div>
+    `;
+    productLink.appendChild(productDiv);
+    productList.appendChild(productLink);
   });
 }
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCart();
+}
 
 function addToCart(product) {
-  const existingProduct = cart.find(item => item.nombre === product.nombre);
+  const existingProduct = cart.find(item => item.id === product.id);
   if (existingProduct) {
     existingProduct.quantity++;
   } else {
     cart.push({ ...product, quantity: 1 });
   }
-  updateCart();
+  saveCart();
 }
 
 function updateCart() {
@@ -92,9 +96,9 @@ function updateCart() {
         <p>$${item.precio} x ${item.quantity}</p>
       </div>
       <div class="cart-item-actions">
-        <button class="quantity-change" data-name="${item.nombre}" data-change="-1">-</button>
+        <button class="quantity-change" data-id="${item.id}" data-change="-1">-</button>
         <span>${item.quantity}</span>
-        <button class="quantity-change" data-name="${item.nombre}" data-change="1">+</button>
+        <button class="quantity-change" data-id="${item.id}" data-change="1">+</button>
       </div>
     `;
     cartItemsContainer.appendChild(itemElement);
@@ -107,21 +111,21 @@ function updateCart() {
 
   document.querySelectorAll('.quantity-change').forEach(button => {
     button.addEventListener('click', (e) => {
-      const productName = e.target.dataset.name;
+      const productId = parseInt(e.target.dataset.id);
       const change = parseInt(e.target.dataset.change);
-      changeQuantity(productName, change);
+      changeQuantity(productId, change);
     });
   });
 }
 
-function changeQuantity(productName, change) {
-  const productInCart = cart.find(item => item.nombre === productName);
+function changeQuantity(productId, change) {
+  const productInCart = cart.find(item => item.id === productId);
   if (productInCart) {
     productInCart.quantity += change;
     if (productInCart.quantity <= 0) {
-      cart = cart.filter(item => item.nombre !== productName);
+      cart = cart.filter(item => item.id !== productId);
     }
-    updateCart();
+    saveCart();
   }
 }
 
@@ -137,5 +141,8 @@ document.getElementById('cart-overlay').addEventListener('click', () => {
 
 document.getElementById('clear-cart').addEventListener('click', () => {
   cart = [];
-  updateCart();
+  saveCart();
 });
+
+// Cargar el carrito al iniciar
+updateCart();

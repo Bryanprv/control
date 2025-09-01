@@ -224,3 +224,62 @@ header h1 {
 .add-to-cart-btn:hover {
     background: #059669;
 }
+
+/* Product Detail Page */
+#product-detail-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 2rem;
+    box-shadow: 0 8px 32px #6366f144;
+}
+
+.product-detail-image {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 1.5rem;
+}
+
+.product-detail-info {
+    max-width: 500px;
+}
+
+.product-detail-info h2 {
+    font-size: 2.5rem;
+    color: #3b82f6;
+    margin-top: 0;
+}
+
+.product-detail-info p {
+    font-size: 1.1rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.product-detail-price {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #6366f1;
+    margin: 20px 0;
+}
+
+.product-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-info {
+    padding: 1rem;
+}
+
+@media (max-width: 768px) {
+    .product-detail-info h2 {
+        font-size: 2rem;
+    }
+}

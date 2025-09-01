@@ -1,32 +1,42 @@
 [
   {
+    "id": 1,
     "nombre": "Camiseta básica",
-    "descripcion": "Camiseta de algodón 100% en varios colores.",
+    "descripcion": "Camiseta de algodón 100% en varios colores. Perfecta para cualquier ocasión, cómoda y duradera.",
     "precio": 12.99,
-    "categoria": "Ropa"
+    "categoria": "Ropa",
+    "imagen": "https://picsum.photos/seed/p1/400/400"
   },
   {
+    "id": 2,
     "nombre": "Pantalón deportivo",
-    "descripcion": "Pantalón cómodo para ejercicio o uso diario.",
+    "descripcion": "Pantalón cómodo para ejercicio o uso diario. Tejido transpirable y diseño moderno.",
     "precio": 19.99,
-    "categoria": "Ropa"
+    "categoria": "Ropa",
+    "imagen": "https://picsum.photos/seed/p2/400/400"
   },
   {
+    "id": 3,
     "nombre": "Auriculares Bluetooth",
-    "descripcion": "Auriculares inalámbricos con cancelación de ruido.",
+    "descripcion": "Auriculares inalámbricos con cancelación de ruido y hasta 20 horas de batería. Calidad de sonido superior.",
     "precio": 29.99,
-    "categoria": "Electrónica"
+    "categoria": "Electrónica",
+    "imagen": "https://picsum.photos/seed/p3/400/400"
   },
   {
+    "id": 4,
     "nombre": "Mochila escolar",
-    "descripcion": "Mochila resistente con varios compartimentos.",
+    "descripcion": "Mochila resistente con varios compartimentos, ideal para estudiantes y profesionales. Espalda acolchada.",
     "precio": 24.99,
-    "categoria": "Accesorios"
+    "categoria": "Accesorios",
+    "imagen": "https://picsum.photos/seed/p4/400/400"
   },
   {
+    "id": 5,
     "nombre": "Reloj digital",
-    "descripcion": "Reloj resistente al agua con alarma y cronómetro.",
+    "descripcion": "Reloj resistente al agua con alarma, cronómetro y luz de fondo. Estilo deportivo y funcional.",
     "precio": 15.99,
-    "categoria": "Accesorios"
+    "categoria": "Accesorios",
+    "imagen": "https://picsum.photos/seed/p5/400/400"
   }
 ]
