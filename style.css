@@ -34,14 +34,34 @@ header h1 {
   margin-top: 0.5rem;
   padding: 0.7rem 1.2rem;
   width: 100%;
-  max-width: 320px;
+  min-width: 120px;
+  max-width: 420px;
   border: none;
   border-radius: 2rem;
   font-size: 1.1rem;
   box-shadow: 0 2px 8px #6366f122;
   outline: none;
   transition: box-shadow 0.2s;
-  flex: 1 1 180px;
+  flex: 1 1 220px;
+  margin-left: 0;
+}
+@media (max-width: 900px) {
+  #search {
+    max-width: 100%;
+    width: 100%;
+    min-width: 80px;
+    margin-left: 0;
+  }
+}
+@media (max-width: 600px) {
+  #search {
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+    max-width: 100%;
+    width: 100%;
+    min-width: 60px;
+    margin-left: 0;
+  }
 }
 #search:focus {
   box-shadow: 0 4px 16px #6366f144;
