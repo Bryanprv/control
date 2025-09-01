@@ -130,14 +130,10 @@ function changeQuantity(productId, change) {
 }
 
 document.getElementById('cart-icon-container').addEventListener('click', () => {
-  document.getElementById('cart-sidebar').classList.add('visible');
-  document.getElementById('cart-overlay').classList.remove('hidden');
+  window.location.href = 'cart.html';
 });
 
-document.getElementById('cart-overlay').addEventListener('click', () => {
-  document.getElementById('cart-sidebar').classList.remove('visible');
-  document.getElementById('cart-overlay').classList.add('hidden');
-});
+// Eliminado: overlay del carrito
 
 
 // Botón de WhatsApp para enviar el pedido
