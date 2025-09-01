@@ -4,6 +4,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartTotal = document.getElementById('cart-page-total');
   const whatsappBtn = document.getElementById('whatsapp-cart-page');
 
+  function updateCartCounter() {
+    const cartCounter = document.getElementById('cart-counter');
+    if (cartCounter) {
+      const cartArr = JSON.parse(localStorage.getItem('cart')) || [];
+      const totalItems = cartArr.reduce((sum, item) => sum + (item.quantity || 0), 0);
+      cartCounter.textContent = totalItems;
+    }
+  }
+
+  // Icono del carrito redirige a cart.html
+  const cartIcon = document.getElementById('cart-icon-container');
+  if (cartIcon) {
+    cartIcon.addEventListener('click', () => {
+      window.location.href = 'cart.html';
+    });
+  }
+
   function renderCart() {
     cartItemsContainer.innerHTML = '';
     let total = 0;
@@ -11,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cartItemsContainer.innerHTML = '<p>Tu carrito está vacío.</p>';
       cartTotal.textContent = 'Total: $0.00';
       whatsappBtn.style.display = 'none';
+      updateCartCounter();
       return;
     }
     whatsappBtn.style.display = 'inline-block';
@@ -39,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         changeQuantity(productId, change);
       });
     });
+    updateCartCounter();
   }
 
   function changeQuantity(productId, change) {
@@ -70,4 +89,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   renderCart();
+  updateCartCounter();
 });
