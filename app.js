@@ -75,8 +75,9 @@ function mostrarProductos(categoria) {
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function saveCart() {
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCart();
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCart();
+  updateCartCounter();
 }
 
 function addToCart(product) {
@@ -87,46 +88,21 @@ function addToCart(product) {
     cart.push({ ...product, quantity: 1 });
   }
   saveCart();
+  updateCartCounter();
 }
 
 function updateCart() {
-  const cartItemsContainer = document.getElementById('cart-items');
+  // ...actualiza el carrito en la página de carrito si existe...
+  updateCartCounter();
+}
+
+function updateCartCounter() {
   const cartCounter = document.getElementById('cart-counter');
-  const cartTotal = document.getElementById('cart-total');
-  
-  cartItemsContainer.innerHTML = '';
-  let total = 0;
-  let totalItems = 0;
-
-  cart.forEach(item => {
-    const itemElement = document.createElement('div');
-    itemElement.className = 'cart-item';
-    itemElement.innerHTML = `
-      <div class="cart-item-info">
-        <h4>${item.nombre}</h4>
-        <p>$${item.precio} x ${item.quantity}</p>
-      </div>
-      <div class="cart-item-actions">
-        <button class="quantity-change" data-id="${item.id}" data-change="-1">-</button>
-        <span>${item.quantity}</span>
-        <button class="quantity-change" data-id="${item.id}" data-change="1">+</button>
-      </div>
-    `;
-    cartItemsContainer.appendChild(itemElement);
-    total += item.precio * item.quantity;
-    totalItems += item.quantity;
-  });
-
-  cartTotal.textContent = total.toFixed(2);
-  cartCounter.textContent = totalItems;
-
-  document.querySelectorAll('.quantity-change').forEach(button => {
-    button.addEventListener('click', (e) => {
-      const productId = parseInt(e.target.dataset.id);
-      const change = parseInt(e.target.dataset.change);
-      changeQuantity(productId, change);
-    });
-  });
+  if (cartCounter) {
+    const cartArr = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cartArr.reduce((sum, item) => sum + (item.quantity || 0), 0);
+    cartCounter.textContent = totalItems;
+  }
 }
 
 function changeQuantity(productId, change) {
@@ -166,3 +142,4 @@ document.getElementById('whatsapp-cart').addEventListener('click', function(e) {
 
 // Cargar el carrito al iniciar
 updateCart();
+updateCartCounter();
