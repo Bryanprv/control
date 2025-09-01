@@ -7,14 +7,15 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>SmartControl</h1>
-    <input type="text" id="search" placeholder="Buscar productos..." />
+  <header style="display:flex;align-items:center;position:relative;">
+    <img src="logo.png" alt="Logo" style="height:48px;width:auto;margin-right:16px;">
+    <h1 style="margin:0;">SmartControl</h1>
+    <input type="text" id="search" placeholder="Buscar productos..." style="margin-left:24px;" />
     <select id="category-filter">
       <option value="">Todas las categorías</option>
       <!-- Las opciones se pueden agregar manualmente o por JS si lo deseas -->
     </select>
-    <div id="cart-icon-container">
+    <div id="cart-icon-container" style="position:absolute;top:20px;right:30px;cursor:pointer;">
       <img src="https://icongr.am/clarity/shopping-cart.svg?size=32&color=ffffff" alt="Carrito">
       <span id="cart-counter">0</span>
     </div>
