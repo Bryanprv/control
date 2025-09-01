@@ -41,23 +41,34 @@ function mostrarProductos(categoria) {
     productosFiltrados = productosData.filter(p => p.categoria === categoria);
   }
   productosFiltrados.forEach(data => {
-    const productLink = document.createElement('a');
-    productLink.href = `product.html?id=${data.id}`;
-    productLink.className = 'product-link';
-
-    const productDiv = document.createElement('div');
-    productDiv.className = 'product';
-    productDiv.innerHTML = `
-      <img src="${data.imagen}" alt="${data.nombre}" style="width:100%; border-radius: 1rem 1rem 0 0;">
-      <div class="product-info">
-        <h3>${data.nombre}</h3>
-        <p>${data.descripcion.substring(0, 50)}...</p>
-        <strong>$${data.precio}</strong>
-        <div style="margin-top:0.5rem;color:#6366f1;font-size:0.95rem;">${data.categoria ? data.categoria : ''}</div>
-      </div>
+    const productContainer = document.createElement('div');
+    productContainer.className = 'product';
+    productContainer.innerHTML = `
+      <a href="product.html?id=${data.id}" class="product-link" style="text-decoration:none;color:inherit;display:block;">
+        <img src="${data.imagen}" alt="${data.nombre}" style="width:100%; border-radius: 1rem 1rem 0 0;">
+        <div class="product-info">
+          <h3>${data.nombre}</h3>
+          <p>${data.descripcion.substring(0, 50)}...</p>
+          <strong>$${data.precio}</strong>
+          <div style="margin-top:0.5rem;color:#6366f1;font-size:0.95rem;">${data.categoria ? data.categoria : ''}</div>
+        </div>
+      </a>
+      <button class="add-to-cart-btn" data-id="${data.id}">Añadir al carrito</button>
     `;
-    productLink.appendChild(productDiv);
-    productList.appendChild(productLink);
+    productList.appendChild(productContainer);
+  });
+
+  // Listeners para los botones de añadir al carrito
+  document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const id = parseInt(e.target.dataset.id);
+      const producto = productosData.find(p => p.id === id);
+      if (producto) {
+        addToCart(producto);
+        e.target.textContent = '¡Añadido!';
+        setTimeout(() => { e.target.textContent = 'Añadir al carrito'; }, 1000);
+      }
+    });
   });
 }
 
