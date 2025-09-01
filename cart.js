@@ -85,7 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     mensaje += `Total: $${cart.reduce((acc, item) => acc + item.precio * item.quantity, 0).toFixed(2)}`;
     const telefono = '521XXXXXXXXXX'; // Reemplaza por tu número de WhatsApp
-    const url = `https://wa.me/${telefono}?text=${mensaje}`;
+    // Usar wa.me para móviles y web.whatsapp para escritorio
+    let url = '';
+    if (/Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent)) {
+      url = `https://wa.me/${telefono}?text=${mensaje}`;
+    } else {
+      url = `https://web.whatsapp.com/send?phone=${telefono}&text=${mensaje}`;
+    }
     window.open(url, '_blank');
   });
 
