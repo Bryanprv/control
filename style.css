@@ -10,31 +10,38 @@ header {
   background: linear-gradient(90deg, #6366f1 0%, #3b82f6 100%);
   color: white;
   padding: 2rem 1rem 1.5rem 1rem;
-  text-align: center;
   box-shadow: 0 2px 8px rgba(99,102,241,0.15);
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: relative;
+  justify-content: flex-start;
 }
 
 header h1 {
-  margin: 0 0 0.5rem 0;
-  font-size: 2.5rem;
+  margin: 0;
+  font-size: 2.2rem;
   letter-spacing: 2px;
   font-weight: 700;
   text-shadow: 1px 2px 8px #312e8144;
+  white-space: nowrap;
 }
 
 #search {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   padding: 0.7rem 1.2rem;
-  width: 60%;
-  max-width: 400px;
+  width: 100%;
+  max-width: 320px;
   border: none;
   border-radius: 2rem;
   font-size: 1.1rem;
   box-shadow: 0 2px 8px #6366f122;
   outline: none;
   transition: box-shadow 0.2s;
+  flex: 1 1 180px;
 }
 #search:focus {
   box-shadow: 0 4px 16px #6366f144;
@@ -94,6 +101,50 @@ header h1 {
   top: 20px;
   right: 30px;
   cursor: pointer;
+}
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+  #cart-icon-container {
+    position: static;
+    align-self: flex-end;
+    margin-top: 0.5rem;
+    margin-right: 0;
+  }
+  header h1 {
+    font-size: 1.5rem;
+  }
+  #search {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.3rem;
+    padding: 0.7rem 0.2rem 0.7rem 0.2rem;
+  }
+  header h1 {
+    font-size: 1.1rem;
+  }
+  #search {
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+  }
+  #cart-icon-container {
+    margin-top: 0.3rem;
+  }
+  img[alt="Logo"] {
+    height: 32px !important;
+    margin-right: 8px !important;
+  }
 }
 
 #cart-icon-container img {
