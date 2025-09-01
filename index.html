@@ -14,10 +14,21 @@
       <option value="">Todas las categorías</option>
       <!-- Las opciones se pueden agregar manualmente o por JS si lo deseas -->
     </select>
-    
+    <div id="cart-icon-container">
+      <img src="https://icongr.am/clarity/shopping-cart.svg?size=32&color=ffffff" alt="Carrito">
+      <span id="cart-counter">0</span>
+    </div>
   </header>
 
   <main id="product-list"></main>
+
+  <aside id="cart-sidebar" class="hidden">
+    <h2>Mi Carrito</h2>
+    <div id="cart-items"></div>
+    <p>Total: $<span id="cart-total">0.00</span></p>
+    <button id="clear-cart">Vaciar Carrito</button>
+  </aside>
+  <div id="cart-overlay" class="hidden"></div>
 
   <script src="app.js"></script>
 </body>
