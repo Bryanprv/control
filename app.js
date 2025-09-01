@@ -135,7 +135,7 @@ document.getElementById('whatsapp-cart').addEventListener('click', function(e) {
     mensaje += `- ${item.nombre} x${item.quantity} ($${item.precio})%0A`;
   });
   mensaje += `Total: $${cart.reduce((acc, item) => acc + item.precio * item.quantity, 0).toFixed(2)}`;
-  const telefono = '+593999074150'; // Reemplaza por tu número de WhatsApp
+  const telefono = '593999074150'; // Reemplaza por tu número de WhatsApp
   const url = `https://wa.me/${telefono}?text=${mensaje}`;
   window.open(url, '_blank');
 });
