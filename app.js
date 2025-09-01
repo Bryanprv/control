@@ -31,14 +31,35 @@ document.addEventListener('DOMContentLoaded', () => {
     mostrarProductos(this.value);
   });
   cargarProductosJSON();
+
+  // Búsqueda por palabra clave
+  const searchInput = document.getElementById('search');
+  const searchBtn = document.getElementById('search-btn');
+  function buscarProductos() {
+    const palabra = searchInput.value.trim().toLowerCase();
+    if (!palabra) {
+      mostrarProductos();
+      return;
+    }
+    const resultados = productosData.filter(p =>
+      p.nombre.toLowerCase().includes(palabra) ||
+      p.descripcion.toLowerCase().includes(palabra) ||
+      (p.categoria && p.categoria.toLowerCase().includes(palabra))
+    );
+    mostrarProductos(null, resultados);
+  }
+  searchBtn.addEventListener('click', buscarProductos);
+  searchInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') buscarProductos();
+  });
 });
 
-function mostrarProductos(categoria) {
+function mostrarProductos(categoria = null, lista = null) {
   const productList = document.getElementById('product-list');
   productList.innerHTML = '';
-  let productosFiltrados = productosData;
+  let productosFiltrados = lista || productosData;
   if (categoria) {
-    productosFiltrados = productosData.filter(p => p.categoria === categoria);
+    productosFiltrados = productosFiltrados.filter(p => p.categoria === categoria);
   }
   productosFiltrados.forEach(data => {
     const productContainer = document.createElement('div');

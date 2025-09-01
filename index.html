@@ -11,7 +11,12 @@
     <img src="logo.png" alt="Logo" style="height:48px;width:auto;margin-right:16px;">
     <h1 style="margin:0;white-space:nowrap;">SmartControl</h1>
     <div style="display:flex;flex:1 1 220px;align-items:center;gap:1rem;min-width:200px;">
-      <input type="text" id="search" placeholder="Buscar productos..." />
+      <div style="display:flex;align-items:center;gap:0.3rem;width:100%;">
+        <input type="text" id="search" placeholder="Buscar productos..." style="flex:1;" />
+        <button id="search-btn" style="background:transparent;border:none;cursor:pointer;padding:0 8px;">
+          <img src="https://icongr.am/feather/search.svg?size=20&color=6366f1" alt="Buscar" style="vertical-align:middle;" />
+        </button>
+      </div>
       <select id="category-filter">
         <option value="">Todas las categorías</option>
         <!-- Las opciones se pueden agregar manualmente o por JS si lo deseas -->
