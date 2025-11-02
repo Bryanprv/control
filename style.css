@@ -2,7 +2,8 @@ body {
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  /* Fondo rosa pastel */
+  background: linear-gradient(135deg, #fff1f6 0%, #ffe6f0 50%, #ffdced 100%);
   min-height: 100vh;
 }
 
@@ -89,8 +90,8 @@ header h1 {
 }
 .product:hover {
   transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 8px 32px #6366f144;
-  border-color: #6366f1;
+  box-shadow: 0 8px 32px rgba(255, 182, 193, 0.18); /* rosa tenue */
+  border-color: #ffb6c1;
 }
 .product h3 {
   margin: 0 0 0.5rem 0;
@@ -105,14 +106,14 @@ header h1 {
 }
 .product strong {
   display: inline-block;
-  background: linear-gradient(90deg, #6366f1 0%, #3b82f6 100%);
+  background: linear-gradient(90deg, #ff9fb3 0%, #ff7fa0 100%); /* acento rosa */
   color: white;
   padding: 0.5rem 1.2rem;
   border-radius: 1rem;
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 1px;
-  box-shadow: 0 2px 8px #6366f122;
+  box-shadow: 0 2px 8px rgba(255,127,160,0.12);
 }
 
 /* Carrito de Compras */
