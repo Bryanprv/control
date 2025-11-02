@@ -41,10 +41,19 @@
   },
   {
     "id": 6,
-    "nombre": "Controles tv",
-    "descripcion": "Reloj resistente al agua con alarma, cronómetro y luz de fondo. Estilo deportivo y funcional.",
-    "precio": 15.99,
-    "categoria": "Accesorios",
-    "imagen": "https://picsum.photos/seed/p5/400/400"
+    "nombre": "Control Smart TV Universal",
+    "descripcion": "Control universal para Smart TV — compatible con la mayoría de marcas. Botones retroiluminados y alcance hasta 10 metros.",
+    "precio": 18.99,
+    "categoria": "Controles Smart tv",
+    "imagen": "https://picsum.photos/seed/p6/400/400"
+  }
+  ,
+  {
+    "id": 7,
+    "nombre": "Control Smart TV Bluetooth",
+    "descripcion": "Control con conexión Bluetooth, micrófono para búsqueda por voz y diseño ergonómico.",
+    "precio": 29.99,
+    "categoria": "Controles Smart tv",
+    "imagen": "https://picsum.photos/seed/p7/400/400"
   }
 ]
