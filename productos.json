@@ -38,7 +38,7 @@
     "precio": 15.99,
     "categoria": "Accesorios",
     "imagen": "https://picsum.photos/seed/p5/400/400"
-  }
+  },
   {
     "id": 6,
     "nombre": "Controles tv",
